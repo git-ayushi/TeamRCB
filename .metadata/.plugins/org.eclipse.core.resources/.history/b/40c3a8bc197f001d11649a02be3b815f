@@ -1,0 +1,38 @@
+package com.testvagrant.Tests;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.testvagrant.data.DataReader;
+
+
+public class TeamRCB extends DataReader {
+	
+	@DataProvider
+	public void getData() throws IOException {	
+		//data provider using json file 
+		JSONArray data;
+		data = getJsonDataToHashmap(System.getProperty("user.dir")+"//src//test//java//com//testvagrant//data//Team.json");
+		for(int i = 0; i < data.length(); i++) {
+			System.out.println(data.get(i).toString());
+		}
+		
+	}
+	
+	@Test(dataProvider = "getData")
+	public void GetForeignPlayers(HashMap<String,String> input) {
+		
+	}
+	
+	@Test(dataProvider = "getData")
+	public void getWicketKeeper(HashMap<String,String> input) {
+		
+	}
+	
+
+}

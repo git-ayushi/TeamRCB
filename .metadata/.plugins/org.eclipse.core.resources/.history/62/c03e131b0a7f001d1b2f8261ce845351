@@ -1,0 +1,22 @@
+package com.testvagrant.Tests;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.testvagrant.data.DataReader;
+
+
+public class TeamRCB {
+	
+	@DataProvider
+	public Object[][] getData() throws IOException {	
+		//data provider using json file 
+		List<HashMap<String, String>> data = DataReader.getJsonDataToHashmap(System.getProperty("user.dir")+"//src//test//java//com//testvagrant//data//Team.json");
+		return new Object[][] {{data.get(0)}, {data.get(1)}};
+	}
+
+}
